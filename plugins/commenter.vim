@@ -1,43 +1,69 @@
-" Github link: https://github.com/preservim/nerdcommenter
-" Create default mappings
-let g:NERDCreateDefaultMappings = 1
+lua << EOF
+require('Comment').setup({
+    ---Add a space b/w comment and the line
+    padding = true,
+    ---Whether the cursor should stay at its position
+    sticky = true,
+    ---Lines to be ignored while (un)comment
+    ignore = nil,
+    ---LHS of toggle mappings in NORMAL mode
+    toggler = {
+        ---Line-comment toggle keymap
+        line = 'gcc',
+        ---Block-comment toggle keymap
+        block = 'gbc',
+        },
+    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+    opleader = {
+        ---Line-comment keymap
+        line = 'gc',
+        ---Block-comment keymap
+        block = 'gb',
+        },
+    ---LHS of extra mappings
+    extra = {
+        ---Add comment on the line above
+        above = 'gcO',
+        ---Add comment on the line below
+        below = 'gco',
+        ---Add comment at the end of line
+        eol = 'gcA',
+        },
+    ---Enable keybindings
+    ---NOTE: If given `false` then the plugin won't create any mappings
+    mappings = {
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+        basic = true,
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = true,
+        ---Extended mapping; `g>` `g<` `g>[count]{motion}` `g<[count]{motion}`
+        extended = false,
+        },
+    ---Function to call before (un)comment
+    pre_hook = nil,
+    ---Function to call after (un)comment
+    post_hook = nil,
+        pre_hook = function(ctx)
+        -- Only calculate commentstring for tsx filetypes
+        if vim.bo.filetype == 'typescriptreact' then
+            local U = require('Comment.utils')
 
-" Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+            -- Determine whether to use linewise or blockwise commentstring
+            local type = ctx.ctype == U.ctype.linewise and '__default' or '__multiline'
 
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
+            -- Determine the location where to calculate commentstring from
+            local location = nil
+            if ctx.ctype == U.ctype.blockwise then
+                location = require('ts_context_commentstring.utils').get_cursor_location()
+            elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+                location = require('ts_context_commentstring.utils').get_visual_start_location()
+            end
 
-" Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDDefaultAlign = 'left'
-
-" Set a language to use its alternate delimiters by default
-let g:NERDAltDelims_java = 1
-
-" Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-" Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1
-
-" Enable trimming of trailing whitespace when uncommenting
-let g:NERDTrimTrailingWhitespace = 1
-
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
-let g:NERDToggleCheckAllLines = 1
-
-" Comment out the current line or text selected in visual mode.
-nnoremap <space>cc <plug>NERDCommenterComment
-vnoremap <space>cc <plug>NERDCommenterComment
-" Toggles the comment state of the selected line(s). If the topmost selected line is commented, all selected lines are uncommented and vice versa.
-nnoremap <space>c<space> <plug>NERDCommenterToggle
-vnoremap <space>c<space> <plug>NERDCommenterToggle
-" Adds comment delimiters to the end of line and goes into insert mode between them.
-nnoremap <space>ca <plug>NERDCommenterAppend
-vnoremap <space>ca <plug>NERDCommenterAppend
-" Comments out the selected lines with a pretty block formatted layout.
-nnoremap <space>cs <plug>NERDCommenterSexy
-vnoremap <space>cs <plug>NERDCommenterSexy
-" Uncomments the selected line(s).
-nnoremap <space>cu <plug>NERDCommenterUncomment
-vnoremap <space>cu <plug>NERDCommenterUncomment
+            return require('ts_context_commentstring.internal').calculate_commentstring({
+                key = type,
+                location = location,
+            })
+        end
+    end,
+})
+EOF

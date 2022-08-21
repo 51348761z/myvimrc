@@ -48,11 +48,3 @@ let g:coc_explorer_global_presets = {
 \   },
 \ }
 
-" Use preset argument to open it
-nmap <space>et <Cmd>CocCommand explorer --preset simplify<CR>
-nmap <space>ef <Cmd>CocCommand explorer --preset floatingRightside<CR>
-" nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
-" nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
-
-" List all presets
-nmap <space>el <Cmd>CocList explPresets<CR>

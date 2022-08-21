@@ -1,6 +1,7 @@
 " In your init.lua or init.vim
 lua << EOF
-require("bufferline").setup{}
+require("bufferline").setup{
+}
 EOF
 
 " the tab page labels will be displayed always

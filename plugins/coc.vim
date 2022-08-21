@@ -5,13 +5,10 @@ let g:coc_global_extensions = ['coc-json', 'coc-git',
                                 \'coc-vimlsp', 'coc-marketplace',
                                 \ 'coc-highlight', 'coc-pairs',
                                 \ 'coc-snippets', 'coc-xml',
-                                \ 'coc-translator']
+                                \ 'coc-translator', 'coc-json',
+                                \ 'coc-sh', 'coc-yaml' ]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-
 
 "       official configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

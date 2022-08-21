@@ -21,7 +21,7 @@ set ignorecase "命令模式忽略大小写
 set showcmd "在输入命令时，在屏幕底部显示出部分命令
 set wildmenu "增强模式中的命令行自动完成操作
 set showmode "在屏幕底部显示当前所处的模式
-set cmdheight=3 "设置命令行高度为3行
+set cmdheight=1 "设置命令行高度为1行
 set laststatus=2 "启动显示状态行(1),总是显示状态行(2)
 set cursorline "突出显示当前行
 set virtualedit=block,onemore
@@ -58,35 +58,6 @@ set confirm "在处理未保存或只读文件的时候，弹出确认
 set termencoding=utf-8
 set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
 
-"tab control
-"
-"
-""""""""""""""""""""""""""""""""""
-noremap <silent>tn :tabnew<CR>
-noremap <silent>tq :tabclose<CR>
-noremap <silent>te :tabn<CR>
-noremap <silent>tu :tabp<CR>
-" noremap <silent><leader>t :tabnew<CR>
-" noremap <silent><leader>g :tabclose<CR>
-noremap <silent><leader>1 :tabn 1<CR>
-noremap <silent><leader>2 :tabn 2<CR>
-noremap <silent><leader>3 :tabn 3<CR>
-noremap <silent><leader>4 :tabn 4<CR>
-noremap <silent><leader>5 :tabn 5<CR>
-noremap <silent><leader>6 :tabn 6<CR>
-noremap <silent><leader>7 :tabn 7<CR>
-noremap <silent><s-tab> :tabnext<CR>
-noremap <silent><s-tab> <ESC>:tabnext<CR>
-
-"slipt window
-""""""""""""""""""""""""""""""""""
-nnoremap <silent><space>sh :split<CR>
-nnoremap <silent><space>sv :vsplit<CR>
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
 " ctags
 """""""""""""""""""""""""""""""""""
 set tags=tags;
@@ -98,7 +69,11 @@ call plug#begin()
 
 """""""""""coc.nvim"""""""""""""
 " Use release branch (recommend)
+Plug 'Shougo/neco-vim'
+Plug 'neoclide/coc-neco'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'honza/vim-snippets'
+Plug 'airblade/vim-gitgutter'
 
 """"""""""lightline && bufferline""""""""""""
 Plug 'itchyny/lightline.vim'
@@ -122,7 +97,9 @@ Plug 'tpope/vim-fugitive'
 
 """""""""""nerdcommenter"""""""""""""
 ""注释工具
-Plug 'preservim/nerdcommenter'
+" Plug 'preservim/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 """""""""""vim-visual-multi"""""""""""""
 ""多光标操作
@@ -141,6 +118,17 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " beautiful indent blankline
 Plug 'lukas-reineke/indent-blankline.nvim'
+
+" highlight cocconfig
+Plug 'kevinoid/vim-jsonc'
+
+" treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" telescope
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-media-files.nvim'
 
 call plug#end()
 
