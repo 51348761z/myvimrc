@@ -54,7 +54,7 @@ noremap <silent><space>pi :PlugInstall<CR>
 """""""""""""""""""""""""""""
 " Use preset argument to open it
 nmap <space>et <Cmd>CocCommand explorer --preset simplify<CR>
-nmap <space>ef <Cmd>CocCommand explorer --preset floatingRightside<CR>
+nmap <space>ef <Cmd>CocCommand explorer --preset floating<CR>
 " nmap <space>ec <Cmd>CocCommand explorer --preset cocConfig<CR>
 " nmap <space>eb <Cmd>CocCommand explorer --preset buffer<CR>
 

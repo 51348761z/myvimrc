@@ -8,7 +8,9 @@ let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
 " Change the "hint" color to the "orange" color, and make the "error" color bright red
 let g:tokyonight_colors = {
   \ 'hint': 'blue',
-  \ 'error': '#ff0000'
+  \ 'error': '#ff0000',
+  \ 'border': 'blue',
+  \ 'bg_float': '#066b73'
 \ }
 
 " Load the colorscheme
