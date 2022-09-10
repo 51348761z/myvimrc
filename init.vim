@@ -15,7 +15,7 @@ set termguicolors
 " hi Pmenusel ctermfg=white ctermbg=32
 " hi CocFloating ctermfg=black ctermbg=240
 
-set mouse=nv
+set mouse=a
 set number
 set ignorecase "命令模式忽略大小写
 set showcmd "在输入命令时，在屏幕底部显示出部分命令
@@ -113,8 +113,12 @@ Plug 'voldikss/vim-floaterm'
 " keymapping helper
 Plug 'liuchengxu/vim-which-key'
 
-"""""""""""color solution"""""""""""
+"""""""""""color schemes"""""""""""
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'projekt0n/github-nvim-theme'
+Plug 'navarasu/onedark.nvim'
+Plug 'EdenEast/nightfox.nvim' " Vim-Plug
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " beautiful indent blankline
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -129,6 +133,8 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-media-files.nvim'
+
+Plug 'myusuf3/numbers.vim'
 
 call plug#end()
 
