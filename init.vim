@@ -1,5 +1,6 @@
-let g:python3_host_prog = '/usr/bin/python3.9'
+let g:python3_host_prog = '/usr/bin/python3'
 let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
 
 "      general settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -135,6 +136,10 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-media-files.nvim'
 
 Plug 'myusuf3/numbers.vim'
+
+"ranger.vim
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 call plug#end()
 

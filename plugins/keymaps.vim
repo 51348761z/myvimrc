@@ -77,3 +77,9 @@ vmap <space>te <Plug>(coc-translator-ev)
 """"""""""""""""""""""""""""""""""""""
 nmap <space>lm :CocList marketplace<CR>
 nmap <space>le :CocList extensions<CR>
+
+
+" ranger.vim
+""""""""""""""""""""""""""""""""""""""
+let g:ranger_map_keys = 0
+map <space>ra :Ranger<CR>
