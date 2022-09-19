@@ -23,7 +23,7 @@ set noshowmode
 " use coc-git configuration
 " lightline
 let g:lightline = {
-  \ 'colorscheme': 'tokyonight',
+  \ 'colorscheme': 'nightfox',
   \ 'active': {
   \   'left': [
   \     [ 'mode', 'paste' ],
