@@ -31,11 +31,11 @@ require'nvim-treesitter.configs'.setup {
     -- indentation key: '='
     require'nvim-treesitter.configs'.setup {
         indent = {
-            enable = true
+            enable = false
             },
         },
     context_commentstring = {
-        enable = true
+        enable = false
         }
 }
 EOF

@@ -1,4 +1,12 @@
 
+" Jump to end/start of line while insert mode
+imap <C-l> <ESC>$a
+imap <C-h> <ESC>^i
+imap <C-j> <ESC>ji
+imap <C-k> <ESC>ki
+imap <C-p> <ESC>ha
+imap <C-n> <ESC>la
+
 "tab control
 """"""""""""""""""""""""""""""""""
 noremap <silent>tn :tabnew<CR>
