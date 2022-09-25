@@ -90,7 +90,8 @@ require('nightfox').setup({
   groups = {},
   palettes = {
               \ duskfox = {
-          \ bg0 = "#245678",
+          -- \ bg0 = "#245678",
+          bg0 = "#000000",
         \ }
         \ }
 })

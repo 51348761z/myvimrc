@@ -6,6 +6,12 @@ let g:loaded_ruby_provider = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader = ","
 
+"   coc.nvim
+""""""""""""""""""""""
+set pumblend=15 " 补全菜单透明
+set pumheight=10 " 补全菜单长度
+" hi CocMenuSel ctermbg=237 guibg=#13354A " 选中项背景色设置
+
 filetype on
 filetype plugin on
 filetype indent on
