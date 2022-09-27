@@ -1,4 +1,4 @@
-
+inoremap <C-c> <Esc>
 " Jump to end/start of line while insert mode
 imap <C-l> <ESC>$a
 imap <C-h> <ESC>^i
