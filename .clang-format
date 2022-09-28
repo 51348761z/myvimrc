@@ -1,5 +1,35 @@
 #基于那个配置文件
 BasedOnStyle: LLVM
+BreakBeforeBraces: Custom
+BraceWrapping:
+  # class定义后面
+  AfterClass: false
+  # 控制语句后面
+  AfterControlStatement: false
+  # enum定义后面
+  AfterEnum: false
+  # 函数定义后面
+  AfterFunction: true
+  # 命名空间定义后面
+  AfterNamespace: true
+  # ObjC定义后面
+  AfterObjCDeclaration: false
+  # struct定义后面
+  AfterStruct: true
+  # union定义后面
+  AfterUnion: true
+ 
+  AfterExternBlock: false
+  # catch之前
+  BeforeCatch: true
+  # else之前
+  BeforeElse: true
+  # 缩进大括号
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+
 #指针的*的挨着哪边
 PointerAlignment: Right
 #缩进宽度
@@ -17,15 +47,15 @@ AllowShortIfStatementsOnASingleLine: false
 #注释对齐
 AlignTrailingComments: true
 # 换行的时候对齐操作符
-AlignOperands: true
+# AlignOperands: true
 # 中括号两边空格 [] 
 SpacesInSquareBrackets: false
 # 小括号两边添加空格
 SpacesInParentheses : false
 #多行声明语句按照=对齐
-AlignConsecutiveDeclarations: true
+# AlignConsecutiveDeclarations: true
 #连续的赋值语句以 = 为中心对齐
-AlignConsecutiveAssignments: true
+# AlignConsecutiveAssignments: true
 #等号两边的空格
 SpaceBeforeAssignmentOperators: true
 # 容器类的空格 例如 OC的字典
@@ -39,7 +69,7 @@ BreakConstructorInitializersBeforeComma: false
 #函数参数换行
 AllowAllParametersOfDeclarationOnNextLine: true
 #括号后添加空格
-SpaceAfterCStyleCast: true
+SpaceAfterCStyleCast: false
 #tab键盘的宽度
 TabWidth: 4
 UseTab: Never
